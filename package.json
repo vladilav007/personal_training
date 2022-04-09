@@ -1,5 +1,11 @@
 {
   "name": "sport_app",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "vue-resource": "^1.5.3"
+  },
+  "devDependencies": {
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.8.1"
+  }
 }
