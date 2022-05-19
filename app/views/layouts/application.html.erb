@@ -9,7 +9,6 @@
     <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
   </head>
 
   <body class="<%= yield (:body_class) %>">
@@ -36,7 +35,9 @@
           <span></span>
         </div>
       </div>
-
+      <div class="navbar-item"><%= link_to 'All Workouts', workouts_path, class: 'button is-green' if user_signed_in? %>
+      <%= link_to 'Add exercise',  new_workout_exercise_path(1), class: 'button is-green' if user_signed_in? %></div>
+     
       <div id="navbar" class="navbar-menu">
         <div class="navbar-end">
           <div class="navbar-item"><%= link_to 'Create new Workout', new_workout_path, class: 'button is-dark' if user_signed_in? %></div>

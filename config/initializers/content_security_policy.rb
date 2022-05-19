@@ -14,6 +14,7 @@
 
 #   # Specify URI for violation reports
 #   # policy.report_uri "/csp-violation-report-endpoint"
+
   if Rails.env.development?
     policy.script_src :self, :https, :unsafe_eval
   else

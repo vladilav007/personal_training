@@ -1,19 +1,13 @@
-<%= form_with(model: exercise, local: true) do |form| %>
-  <% if exercise.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(exercise.errors.count, "error") %> prohibited this exercise from being saved:</h2>
-
-      <ul>
-      <% exercise.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_for [@workout, @exercise] do |form| %>
 
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sets %>
+    <%= form.text_field :sets %>
   </div>
 
   <div class="field">
@@ -22,11 +16,12 @@
   </div>
 
   <div class="field">
-    <%= form.label :workout_id %>
-    <%= form.text_field :workout_id %>
+    <%= form.label :workout_id, "Workout Name" %><br>
+    <%= form.collection_select :workout_id, Workout.all, :id, :title %>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
+
 <% end %>

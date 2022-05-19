@@ -63,8 +63,12 @@ class ExercisesController < ApplicationController
       @exercise = Exercise.find(params[:id])
     end
 
+    def set_workout
+      @workout = Workout.find(params[:workout_id])
+    end
+
     # Only allow a list of trusted parameters through.
     def exercise_params
-      params.require(:exercise).permit(:name, :weight, :workout_id)
+      params.require(:exercise).permit(:name, :sets, :weight, :workout_id)
     end
 end
